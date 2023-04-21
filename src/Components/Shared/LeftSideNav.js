@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Catagories from '../pages/Category/Catagories';
+import { toast } from 'react-hot-toast';
 
 const LeftSideNav = () => {
     const [catagories, setCategories] = useState([])
@@ -12,7 +13,11 @@ const LeftSideNav = () => {
                 console.log(result)
             })
     }, [])
-
+    const notify = () => {
+        loading()
+        toast.success('Here is your toast.')
+    };
+    const loading = () => toast.loading('Here is your loading toast.');
     return (
         <div className=''>
             <h4>All Catagories! </h4>
@@ -23,6 +28,11 @@ const LeftSideNav = () => {
                 ></Catagories>)
             }
             {/* <Catagories /> */}
+
+            <div>
+                <button onClick={notify}>Make me a toast</button>
+                {/* <Toaster /> */}
+            </div>
         </div>
     );
 };

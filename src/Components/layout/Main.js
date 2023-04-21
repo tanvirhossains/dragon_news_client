@@ -4,7 +4,8 @@ import Header from '../Shared/Header';
 import { Col, Container, Row } from 'react-bootstrap';
 
 import LeftSideNav from '../Shared/LeftSideNav';
-import RightSideNav from '../Shared/RightSideNav';
+import RightSideNav from '../Shared/RigthSideNav/RightSideNav';
+// import RightSideNav from '../Shared/RightSideNav';
 
 const Main = () => {
     return (
