@@ -81,9 +81,9 @@ const Header = () => {
                                 Login
                             </Link>
                         }
-                        {/* <Model
+                        <Model
                             modalEle={modalElement}
-                        ></Model> */}
+                        ></Model>
 
                         {
                             user ? <p onClick={handleSignOut}>Log Out</p> :

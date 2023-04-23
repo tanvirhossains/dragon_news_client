@@ -4,8 +4,11 @@ import Home from "../pages/Home/Home";
 import Catagories from "../pages/Category/Catagories";
 import Category from "./Category";
 import CategoryNewses from "../pages/Home/CategoryNewses";
-import LogIn from "../LoginRegister/LogIn";
 import Model from "../LoginRegister/Model";
+import NewsDetailInfo from "../pages/News/NewsDetail/NewsDetailInfo";
+import NewsDetail from "../pages/News/NewsDetail/NewsDetail";
+
+
 
 export const router = createBrowserRouter([
     {
@@ -28,14 +31,23 @@ export const router = createBrowserRouter([
                 element: <CategoryNewses />,
             },
             {
-                path:"/#login",
-                element: <Model/>
+                path: "/#login",
+                element: <Model />
 
             },
             {
-                path:"/#login",
-                element: <Model/>
+                path: "/#login",
+                element: <Model />
 
+            },
+            {
+                path: "/:categoryName/:id/:title",
+                element: <NewsDetail />,
+                loader: async ({ request, params }) => {
+                    return fetch(`http://localhost:5000/${params.categoryName}/${params.id}/${params.title}`)
+
+
+                }
             }
 
 

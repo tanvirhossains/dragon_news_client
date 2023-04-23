@@ -3,7 +3,7 @@ import { Form, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
-import { FaFacebook, FaFacebookF, FaGoogle, FaMailBulk, FaUser } from 'react-icons/fa';
+import { FaFacebookF, FaGoogle } from 'react-icons/fa';
 import userPng from '../../asset/user.png'
 import './Login.css'
 

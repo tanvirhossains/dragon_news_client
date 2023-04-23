@@ -45,7 +45,7 @@ const RightSideNav = () => {
 
     return (
         <div className='mt-3' >
-            <h1 >RightSideNav</h1>
+            {/* <h1 >RightSideNav</h1> */}
             <ButtonGroup vertical className=''>
                 <Button onClick={handleGoogleSignIn} className='signInButton w-full' variant="outline-primary" ><FaGoogle /><span>Sign In with Google</span> </Button>
                 <Button className='signInButton' variant="outline-secondary"><FaFacebook /><span>Sign in with Facebook </span> </Button>

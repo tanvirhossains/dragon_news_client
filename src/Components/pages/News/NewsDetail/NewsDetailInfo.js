@@ -2,11 +2,10 @@ import React from 'react';
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar, } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './CategoryNews.css'
 
-const CategoryNews = ({ newsCategory }) => {
-    const { author, image_url, details, title, total_view, rating, _id, category_name } = newsCategory
-   
+
+const NewsDetailInfo = ({ news }) => {
+    const { author, image_url, details, title, total_view, rating, _id, category_name } = news
     return (
         <div className='my-3 '>
             <Card className='border-0 bg- shadow-lg  bg-body-tertiary rounded p-0'>
@@ -32,17 +31,9 @@ const CategoryNews = ({ newsCategory }) => {
                     {/* </Card.Body> */}
                     <Card.Img className='px-2' variant="top" src={image_url} />
                     {/* <Card.Body > */}
-                    <div className='py-2'>
+                    <div className='py-2 text-start px-3'>
 
-                        {/* {details.slice(0, 120)}... <Link className='see_more' to='/'>see more</Link> */}
-                        {
-                            details.length > 150
-                                ?
-                                <p>{details.slice(0, 150) + "..."}<Link to={`/${category_name}/${_id}/${title}`}>See More</Link></p>
-
-                                :
-                                <p>{details}</p>
-                        }
+                        {details}
                     </div>
                 </Card>
                 <br />
@@ -67,6 +58,5 @@ const CategoryNews = ({ newsCategory }) => {
 
         </div>
     );
-};
-
-export default CategoryNews;
+}
+export default NewsDetailInfo;

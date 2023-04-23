@@ -10,7 +10,7 @@ const LeftSideNav = () => {
             .then(response => response.json())
             .then(result => {
                 setCategories(result)
-                console.log(result)
+                // console.log(result)
             })
     }, [])
     const notify = () => {
@@ -18,6 +18,7 @@ const LeftSideNav = () => {
         toast.success('Here is your toast.')
     };
     const loading = () => toast.loading('Here is your loading toast.');
+    
     return (
         <div className=''>
             <h4>All Catagories! </h4>
