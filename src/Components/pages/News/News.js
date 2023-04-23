@@ -8,6 +8,7 @@ const News = ({ news, index }) => {
     const { author, image_url, details, title, total_view, rating, _id } = news
     const { number } = rating;
     const { img, name, published_date } = author;
+
     return (
         <div className='my-3 '>
             <Card className='border-0 bg- shadow-lg  bg-body-tertiary rounded'>
@@ -33,11 +34,10 @@ const News = ({ news, index }) => {
                     </Card.Body>
                     <Card.Img variant="top" src={image_url} />
                     <Card.Body >
-                        <Card.Text className='p-0'>
+                        <Card.Text className='p-0  '>
                             {
                                 details.length > 150
                                     ?
-
                                     <p>{details.slice(0, 150) + "..."}<Link to={`news/${_id}`}>See More</Link></p>
 
                                     :

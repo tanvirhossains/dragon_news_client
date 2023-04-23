@@ -21,7 +21,6 @@ const Header = () => {
 
 
 
-
     const [logInModal, setLogInModel] = useState(false);
     const [registerModal, setRegisterModal] = useState(false)
 
@@ -76,72 +75,21 @@ const Header = () => {
                         </Nav>
 
 
-                        {/* <Button class="btn btn-link" onClick={handleLoginShow}>
-                            Login
-                        </Button> */}
-                        <Link to='/#login' class="btn btn-link" onClick={handleLoginShow}>
-                            Login
-                        </Link>
-                        <Model
+                        {
+                            !user &&
+                            <Link to='/#login' class="text-white mx-3" onClick={handleLoginShow}>
+                                Login
+                            </Link>
+                        }
+                        {/* <Model
                             modalEle={modalElement}
-                        // setLogInModel={setLogInModel}
-                        // logInModal={logInModal}
-                        // handleLoginShow={handleLoginShow}
-                        ></Model>
-                        {/* 
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Modal heading</Modal.Title>
-                            </Modal.Header>
-                            
-
-
-
-                            <Form class="card-body " onSubmit={handleLogIn} className='a mx-auto w-full'>
-                                <div class="form-control border-0">
-                                    <label class="label">
-                                        <span class="label-text">Email</span>
-                                    </label>
-                                    <br />
-                                    <input name='email' type="email" placeholder="email" class="input input-bordered" required />
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Password</span>
-                                    </label>
-                                    <br />
-                                    <input name="password" type="password" placeholder="password" class="input input-bordered" required />
-                                    <br />
-                                    <label class="label">
-                                        <Link to="/register" class="label-text-alt link link-hover">Are You New?</Link>
-                                    </label>
-                                </div>
-                                <div class="form-control mt-6">
-                                    <button class="btn btn-primary">Log in</button>
-                                </div>
-                            </Form>
-
-
-
-                            <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={handleClose}>
-                                    Save Changes
-                                </Button>
-                            </Modal.Footer>
-                        </Modal> */}
-
-
-
+                        ></Model> */}
 
                         {
                             user ? <p onClick={handleSignOut}>Log Out</p> :
                                 <>
                                     <Link to='/login' >Log In</Link>
-                                    <span className='mx-2'>Resister</span>
+                                    <span className='mx-2'>Register</span>
                                 </>
                         }
                         {user ? <p>{user?.displayName} {user?.email}</p> :

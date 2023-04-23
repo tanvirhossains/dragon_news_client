@@ -3,10 +3,23 @@ import { Form, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
-import { FaMailBulk } from 'react-icons/fa';
+import { FaFacebook, FaFacebookF, FaGoogle, FaMailBulk, FaUser } from 'react-icons/fa';
+import userPng from '../../asset/user.png'
+import './Login.css'
 
 const Model = (props) => {
 
+    // const background = {
+
+    //     paddingLeft: '20px',
+    //     paddingTop: "10px",
+    //     backgroundImage: `url(${userPng})`,
+    //     backgroundRepeat: 'no-repeat',
+    //     backgroundSize: '20px',
+    //     // backgroundSize: 'contain',
+    //     marginLeft: '',
+
+    // }
     const { logInModal, setLogInModel, handleLoginShow, handleLoginClose, registerModal, setRegisterModal, handleRegisterClose, handleRegisterShow } = props.modalEle
 
 
@@ -55,51 +68,34 @@ const Model = (props) => {
                 keyboard={false} centered >
                 <Modal.Header className='' closeButton >
                     <Modal.Title className='text-cente' >
-                        Log In Please To Continue !jk
+                        Log In Please To Continue !
                     </Modal.Title>
                 </Modal.Header>
 
+                <Form className="card-bod  mx-auto w-75 m-4 p-  bg-secondar " onSubmit={handleLogIn} >
+                    {/* <div className="form-contro mx-4"> */}
 
+                    <input ref={emailRef} type="email" class="input-email form-control border-start-0  my-4" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" required />
 
-                <Form className="card-bod a  w-full border-0 " onSubmit={handleLogIn} >
-                    <div className="form-contro mx-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-                        </div>
-                        <label className="label">
-                            <span className="label-text fs-5 fw-bold">Email</span>
-                        </label>
+                    <input ref={passwordRef} type="password" placeholder="password" className="form-control  input-password" required />
 
-                        <FaMailBulk />
-                        <input className="form-control " ref={emailRef} type="email" placeholder="Your email " required />
+                    <span className="">Are You New? </span>
+                    <Link to='/#login' className="btn btn-link" onClick={handleRegisterShow}>
+                        Register
+                    </Link>
 
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <br />
-                        <input ref={passwordRef} type="password" placeholder="password" className="form-control " required />
-                        <br />
-                        {/* <label className="label"> */}
-                        <span className="">Are You New?</span> <span><Link to='/#login' className="btn btn-link" onClick={handleRegisterShow}>
-                            Register
-                        </Link> </span>
-                        {/* </label> */}
-                    </div>
-                    <div className="form-control mt-6 w-full text-center bg-secondary">
-                        <button className="btn btn-primary w-full">Log in</button>
+                    <button class="form-control btn btn-secondary  my-2" type="submit">Log In </button>
+
+                    {/* </div> */}
+                    <p class="fancy">or</p>
+                    <div class="d-flex justify-between  gap-2 mb-4">
+                        <button class="form-control btn btn-danger  my-2" type="submit"><FaGoogle className='mb-1' /> Google Sign In </button>
+                        <button class="form-control btn btn-primary  my-2" type="submit"> <FaFacebookF className=' mb-1' /> Facebook Sign In</button>
                     </div>
                 </Form>
 
 
 
-                {/* <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body> */}
-                <Modal.Footer>
-                    {/* <Link to='/#login' className="btn btn-link" onClick={handleRegisterShow}>
-                        Register
-                    </Link> */}
-
-                </Modal.Footer>
             </Modal>
 
 
@@ -113,41 +109,39 @@ const Model = (props) => {
                     <Modal.Title>Register Please</Modal.Title>
                 </Modal.Header>
 
-                <Form className="card-body mx-3 a mx-auto w-75 borde " onSubmit={handleSignUp} >
-                    <div className="form-contro border-0">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <br />
-                        <input name='email' type="email" placeholder="email" className="form-control " required />
-                    </div>
+                <Form className="card-bod  mx-auto w-75  " onSubmit={handleSignUp} >
+                    {/* <div className="form-contro border-0"> */}
 
-                    <label className="label">
-                        <span className="label-text">Password</span>
-                    </label>
-                    <br />
-                    <input name="password" type="password" placeholder="password" className="form-control " required />
+                    <input name='UserName' type="text" placeholder="User Name" className="form-control input-userName " required />
+
+                    <input name='photoUrl' type="text" placeholder="Photo Url" className="form-control input-photoUrl " required />
+
+                    <input name='email' type="email" placeholder="email" className="form-control input-email " required />
+                    {/* </div> */}
+
+                    <input name="password" type="password" placeholder="password" className="input-password mt-4 form-control " required />
                     <br />
                     <label className="label">
-                        <Link to="/register" className="label-text-alt link link-hover">Are You New?</Link>
+                        <Link to="/#register" className="label-text-alt link link-hover" onClick={handleLoginShow}>Already have and account?</Link>
                     </label>
 
-                    <div className="form-control mt-6 w-ful bg-secondary">
-                        <button className="btn btn-primary w-full">Register</button>
+                    {/* <div className="form-control mt-6 w-ful bg-secondary"> */}
+                    <button className="form-control fw-bold fs-5 my-2 btn btn-primary w-full">Register</button>
+                    {/* </div> */}
+                    <p class="fancy">or</p>
+                    <div class="d-flex justify-between  gap-2 mx-">
+                        <button class="form-control btn btn-danger  my-2" type="submit"><FaGoogle className='mb-1' /> Google Sign In </button>
+                        <button class="form-control btn btn-primary  my-2" type="submit"> <FaFacebookF className=' mb-1' /> Facebook Sign In</button>
                     </div>
                 </Form>
 
 
 
-                <Modal.Footer>
 
-                    <Link to='/#login' className="btn btn-link" onClick={handleLoginShow}>
-                        Login
-                    </Link>
-                    {/* <Button variant="primary" onClick={handleLoginClose}>
-                        Save Changes
-                    </Button> */}
-                </Modal.Footer>
+                {/* <Modal.Footer>
+
+                    
+                </Modal.Footer> */}
             </Modal>
 
         </div>
