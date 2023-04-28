@@ -9,7 +9,7 @@ const Home = () => {
 
     return (
         <div className='home-container'>
-            <h3 >this is home page</h3>
+            <h3 >this is home page on</h3>
 
             {
                 allNewses.map((news, index) => <News
